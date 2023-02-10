@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Library {
     Book[] books;
     int index;
@@ -12,11 +14,12 @@ public class Library {
         System.out.println("Book " + book.getTitle() + " by " + book.getAuthor() + " added.");
     }
 
-    public void checkOut(String name) {
+    public void checkOut(String name, int userId) {
         for (int i = 0; i < index; i++) {
             if (books[i].getTitle().equals(name) && books[i].getStatus()) {
                 books[i].setStatus(false);
-                System.out.println("Book reserved " + books[i].getTitle() + " by " + books[i].getAuthor());
+                books[i].setHandlerId(userId);
+                System.out.println("Book " + books[i].getTitle() + " by " + books[i].getAuthor() + " reserved for user with ID: " + books[i].getHandlerId());
                 return;
             }
         }
@@ -32,10 +35,5 @@ public class Library {
             }
         }
         System.out.println("Book not found or already returned.");
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 }

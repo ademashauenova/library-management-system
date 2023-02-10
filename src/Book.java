@@ -2,12 +2,13 @@ public class Book {
     private String title;
     private boolean status;
     private String author;
+    private int handlerId;
 
     public Book(){
 
     }
 
-    public Book(String title, String author, boolean status){
+    public Book(String title, String author){
         setTitle(title);
         setAuthor(author);
         setStatus(status);
@@ -35,6 +36,14 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setHandlerId(int handlerId) {
+        this.handlerId = handlerId;
+    }
+
+    public int getHandlerId() {
+        return handlerId;
     }
 
     @Override
